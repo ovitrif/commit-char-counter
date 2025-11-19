@@ -1,0 +1,51 @@
+<idea-plugin>
+    <id>io.github.ovitrif.commit-char-counter</id>
+    <name>Commit Character Counter</name>
+    <vendor email="ovitrif@proton.me" url="https://github.com/ovitrif">ovitrif</vendor>
+
+    <description><![CDATA[
+    <p>A lightweight plugin that helps you write better commit messages by displaying a real-time character counter.</p>
+
+    <h3>Features</h3>
+    <ul>
+        <li><strong>Real-time counting:</strong> See character count update as you type</li>
+        <li><strong>Visual feedback:</strong> Counter displays in X/50 format</li>
+        <li><strong>Clear indicators:</strong> Text turns red when exceeding 50 characters</li>
+        <li><strong>First-line focus:</strong> Counts only the subject line (best practice for Git commits)</li>
+        <li><strong>Inline display:</strong> Shows directly in the commit message toolbar</li>
+        <li><strong>Lightweight:</strong> No configuration needed, works out of the box</li>
+    </ul>
+
+    <h3>Why 50 Characters?</h3>
+    <p>Following Git best practices, commit message subject lines should be 50 characters or less for optimal readability in git logs and GitHub interfaces.</p>
+
+    <h3>Compatibility</h3>
+    <p>Works with IntelliJ IDEA, Android Studio, and all JetBrains IDEs that support VCS commits.</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h3>1.0.0 - Initial Release</h3>
+    <ul>
+        <li>Real-time character counter for commit messages</li>
+        <li>Visual feedback with red color when exceeding 50 characters</li>
+        <li>Inline display in commit message toolbar</li>
+        <li>Support for IntelliJ IDEA 2023.3+ and Android Studio 2023.3+</li>
+    </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <checkinHandlerFactory implementation="io.github.ovitrif.commitcharcounter.CommitCharCounterHandlerFactory"/>
+    </extensions>
+
+    <actions>
+        <action id="CommitCharCounter.ShowInline"
+                class="io.github.ovitrif.commitcharcounter.CharCounterAction"
+                text="0/50"
+                description="Shows character count of commit message">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
