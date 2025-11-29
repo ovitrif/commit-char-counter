@@ -5,6 +5,8 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![Commit Character Counter Screenshot](docs/images/screenshot.png)
+
 A modern Kotlin-based IntelliJ IDEA/Android Studio plugin that displays a real-time character counter for commit messages.
 
 ## Features
